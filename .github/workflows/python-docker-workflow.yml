@@ -40,3 +40,13 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      
+      - name: Trigger App Deployment thru TFCB
+        with:
+          token: eqTNqr3kCd95Kw.atlasv1.rMzxayl4V9QFmH3yJlFpRy6lKzGyduNFU2pSGbv99bzVchROr7CLzyz08TGikr6DcmA
+          organization: CiscoCX_LSSE_Learn
+          workspace: iks-app-tf
+          message: Run triggered
+          type: apply
+          wait-for-completion: true
+          id: tfe-run
